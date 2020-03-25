@@ -1,0 +1,22 @@
+<div>
+    <a-input-search placeholder="Suchen" style="width: 100%; margin: 10px 0" />
+    <a-card class="table-container">
+      <a-table :columns="columns" :dataSource="data">
+        <span slot="riskAreas" slot-scope="riskAreas">
+          <a-tag v-for="riskArea in riskAreas" :key="riskArea">
+            {{ riskArea }}
+          </a-tag>
+        </span>
+        <span slot="preIllnesses" slot-scope="preIllnesses">
+          <a-tag v-for="preIllness in preIllnesses" :key="preIllness">
+            {{ preIllness }}
+          </a-tag>
+        </span>
+      </a-table>
+      <div
+        style="display: flex; width: 100%; justify-content: flex-end; margin-bottom: 1rem;"
+      >
+        <a-button type="primary">CSV exportieren</a-button>
+      </div>
+    </a-card>
+  </div>

@@ -1,0 +1,49 @@
+<a-card style="width: 500px; margin: 2rem auto; min-height: 300px">
+    <a-form
+      :label-col="{ span: 6 }"
+      :wrapper-col="{ span: 18 }"
+      @submit="handleSubmit"
+    >
+      <a-form-item label="Test-ID">
+        <a-input
+          v-decorator="[
+            'note',
+            {
+              rules: [
+                { required: true, message: 'Bitte geben Sie Ihre Test-ID ein.' }
+              ]
+            }
+          ]"
+          placeholder="z.B 1337-4237-9438"
+        />
+      </a-form-item>
+      <a-form-item label="Testresultat">
+        <a-radio-group v-decorator="['radio-group']">
+          <a-radio value="true">
+            Positiv
+          </a-radio>
+          <a-radio value="false">
+            Negativ
+          </a-radio>
+        </a-radio-group>
+      </a-form-item>
+      <a-form-item label="Kommentar">
+        <a-textarea
+          placeholder="Kommentar hinzufügen"
+          :autoSize="{ minRows: 3, maxRows: 5 }"
+        />
+      </a-form-item>
+      <a-form-item :wrapper-col="{ span: 24 }">
+        <!-- TODO: FILE UPLOAD! -->
+        <a-upload action="https://www.mocky.io/v2/5cc8019d300000980a055e76">
+          <a-button> <a-icon type="upload" />Test Report hochladen</a-button>
+        </a-upload>
+      </a-form-item>
+      <a-divider />
+      <a-form-item :wrapper-col="{ span: 24, offset: 0 }">
+        <a-button type="primary" html-type="submit">
+          Speichern
+        </a-button>
+      </a-form-item>
+    </a-form>
+  </a-card>

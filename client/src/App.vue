@@ -1,56 +1,18 @@
-<template>
-  <div id="app">
-    <div class="prototype-warning">
-      Dies ist ein Prototyp - Eingetragene Daten werden vor dem Absenden
-      randomisiert.
-    </div>
+<template src="./App.component.html"></template>
+<script lang="ts">
 
-    <a-layout id="components-layout-demo-responsive">
-      <div class="logo" />
-      <Navigation />
-      <a-layout>
-        <a-layout-header
-          :style="{ background: '#fff', padding: 0, height: 'auto' }"
-        >
-        </a-layout-header>
-        <a-layout-content
-          style="margin: '0px auto'; box-sizing: border-box; padding: 2rem 4rem; width: 100%; min-height: calc(100vh - 46px - 69px);"
-        >
-          <div :style="{ padding: '0px', minHeight: '360px', width: '100%' }">
-            <router-view></router-view>
-          </div>
-        </a-layout-content>
-        <a-layout-footer style="textAlign: center">
-          IMIS ©2020 Created by WeVsVirus
-        </a-layout-footer>
-      </a-layout>
-    </a-layout>
-  </div>
-</template>
+import { Component, Vue } from 'vue-property-decorator';
+import Navigation from './components/navigation/navigation.component.vue';
 
-<script>
-import Navigation from "./components/Navigation";
-
-export default {
+@Component({
+  name: 'App',
   components: {
-    Navigation
-  },
-  name: "App"
-};
+    Navigation,
+  }
+})
+export default class App extends Vue {
+
+}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-.prototype-warning {
-  border: 2px solid red;
-  font-size: 20px;
-  background-color: #ffdddd;
-}
-</style>
+<style lang="scss" src="./App.component.scss"></style>
