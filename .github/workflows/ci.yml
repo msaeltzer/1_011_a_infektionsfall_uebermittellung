@@ -24,9 +24,12 @@ jobs:
       with:
         java-version: 1.11
     - uses: actions/checkout@v2
-    - uses: hallee/eslint-action@master
+    - uses: MichaelSp/eslint-action@master
       with:
         repo-token: ${{secrets.GITHUB_TOKEN}}
+      env:
+        SOURCE_ROOT: client
+
     # Configure docker to use the gcloud command-line tool as a credential helper
     - run: |
         gradle build lint test
